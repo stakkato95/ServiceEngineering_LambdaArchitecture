@@ -3,9 +3,12 @@ package app
 import (
 	"encoding/json"
 	"net/http"
+
+	"github.com/stakkato95/lambda-architecture/ingress/service"
 )
 
 type UserHandlers struct {
+	service service.UserService
 }
 
 func (h *UserHandlers) CreateUser(w http.ResponseWriter, r *http.Request) {

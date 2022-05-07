@@ -7,12 +7,13 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/stakkato95/lambda-architecture/ingress/config"
 	"github.com/stakkato95/lambda-architecture/ingress/logger"
+	"github.com/stakkato95/lambda-architecture/ingress/service"
 )
 
 func Start() {
 	router := mux.NewRouter()
 
-	handlers := UserHandlers{}
+	handlers := UserHandlers{service.NewUserServiceStub()}
 
 	router.HandleFunc("/user", handlers.CreateUser).Methods(http.MethodPost)
 
