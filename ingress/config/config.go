@@ -1,15 +1,12 @@
 package config
 
 import (
-	"fmt"
-
 	"github.com/spf13/viper"
 	"github.com/stakkato95/lambda-architecture/ingress/logger"
 )
 
 type Config struct {
-	ServerAddress string `mapstructure:"SERVER_ADDRESS"`
-	ServerPort    string `mapstructure:"SERVER_PORT"`
+	ServerPort string `mapstructure:"SERVER_PORT"`
 }
 
 var AppConfig Config
@@ -31,8 +28,4 @@ func init() {
 	if AppConfig == (Config{}) {
 		logger.Panic("config is emtpy")
 	}
-}
-
-func ServerUri() string {
-	return fmt.Sprintf("%s:%s", AppConfig.ServerAddress, AppConfig.ServerPort)
 }

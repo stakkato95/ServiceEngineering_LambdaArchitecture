@@ -17,10 +17,9 @@ func Start() {
 
 	router.HandleFunc("/user", handlers.CreateUser).Methods(http.MethodPost)
 
-	uri := config.ServerUri()
-
-	logger.Info(fmt.Sprintf("started ingress at %s", uri))
-	if err := http.ListenAndServe(uri, router); err != nil {
+	port := config.AppConfig.ServerPort
+	logger.Info(fmt.Sprintf("started ingress at %s", port))
+	if err := http.ListenAndServe(port, router); err != nil {
 		logger.Error("error when starting ingress " + err.Error())
 	}
 }
