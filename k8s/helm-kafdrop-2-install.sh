@@ -1,0 +1,1 @@
+helm install kafdrop kafdrop/kafdrop --version 0.2.3 --set image.tag=3.31.0-SNAPSHOT --set config.kafka.connections=kafka.default.svc.cluster.local:9092 --set config.kafka.properties.content=`"{{ toString "sasl.jaas.config=org.apache.kafka.common.security.scram.PlainLoginModule required username='user' password='user';\nsecurity.protocol=PLAINTEXT" b64enc }}\n"`
