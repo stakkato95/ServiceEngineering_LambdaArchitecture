@@ -6,6 +6,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/stakkato95/lambda-architecture/ingress/config"
+	"github.com/stakkato95/lambda-architecture/ingress/domain"
 	"github.com/stakkato95/lambda-architecture/ingress/logger"
 	"github.com/stakkato95/lambda-architecture/ingress/service"
 )
@@ -13,9 +14,19 @@ import (
 func Start() {
 	router := mux.NewRouter()
 
-	handlers := UserHandlers{service.NewUserServiceStub()}
+	repo := domain.NewKafkaUserRepository()
+	defer func() {
+		repo.Destroy()
+		logger.Info("Kafka connection successfully destroyed")
+	}()
+
+	service := service.NewUserServiceStub(repo)
+	handlers := UserHandlers{service}
 
 	router.HandleFunc("/user", handlers.CreateUser).Methods(http.MethodPost)
+
+	u := domain.User{Id: "id", Name: "myname"}
+	repo.InjestUser(u)
 
 	port := config.AppConfig.ServerPort
 	logger.Info(fmt.Sprintf("started ingress at %s", port))

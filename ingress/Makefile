@@ -15,7 +15,7 @@ build: test
 .PHONY:build
 
 run-with-env: build
-	$$env:SERVER_PORT='8080'; ./main
+	$$env:SERVER_PORT='8080'; $$env:KAFKA_SERVICE='kafka.default.svc.cluster.local:9092'; ./main
 .PHONY:run-with-env
 
 # clear local dev

@@ -3,17 +3,16 @@ package service
 import (
 	"github.com/stakkato95/lambda-architecture/ingress/domain"
 	"github.com/stakkato95/lambda-architecture/ingress/errs"
-	"github.com/stakkato95/lambda-architecture/ingress/logger"
 )
 
 type userServiceStub struct {
+	repo domain.UserRepository
 }
 
 func (s *userServiceStub) InjestUser(user domain.User) *errs.AppError {
-	logger.Info("stub injest")
-	return nil
+	return s.repo.InjestUser(user)
 }
 
-func NewUserServiceStub() UserService {
-	return &userServiceStub{}
+func NewUserServiceStub(repo domain.UserRepository) UserService {
+	return &userServiceStub{repo}
 }

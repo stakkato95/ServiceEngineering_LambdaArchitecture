@@ -6,7 +6,8 @@ import (
 )
 
 type Config struct {
-	ServerPort string `mapstructure:"SERVER_PORT"`
+	ServerPort   string `mapstructure:"SERVER_PORT"`
+	KafkaService string `mapstructure:"KAFKA_SERVICE"`
 }
 
 var AppConfig Config
