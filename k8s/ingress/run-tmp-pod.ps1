@@ -1,0 +1,1 @@
+kubectl run lambda-ingress --restart='Never' --image stakkato95/lambda-ingress --namespace default
