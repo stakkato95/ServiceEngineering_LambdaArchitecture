@@ -1,10 +1,6 @@
 make.exe --dry-run --always-make --keep-going --print-directory
 make: Entering directory 'c:/Users/stakk/Documents/fh/master/2/service/ServiceEngineering_LambdaArchitecture/ingress'
- 
-go test ./...
- 
-go build main.go
- 
-$env:SERVER_PORT='8080'; $env:KAFKA_SERVICE='kafka.default.svc.cluster.local:9092'; ./main
+docker build -t stakkato95/lambda-ingress:latest . -f Dockerfile
+docker push stakkato95/lambda-ingress:latest
 make: Leaving directory 'c:/Users/stakk/Documents/fh/master/2/service/ServiceEngineering_LambdaArchitecture/ingress'
  

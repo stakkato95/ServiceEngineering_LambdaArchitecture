@@ -1,4 +1,3 @@
-make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target 'all'.  Stop.
 
 # GNU Make 4.3
@@ -8,7 +7,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon May 09 18:41:34 2022
+# Make data base, printed on Mon May 09 18:41:43 2022
 
 # Variables
 
@@ -25,7 +24,7 @@ USERPROFILE = C:\Users\stakk
 # environment
 LOCALAPPDATA = C:\Users\stakk\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-878f7102-7fc8-4a25-bd46-f3be99d80ff7-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-4f755355-3054-461b-a8d6-2cab660cb5b7-sock
 # environment
 VSCODE_CWD = C:\Users\stakk\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -75,7 +74,7 @@ MAKEFLAGS = pqrR
 # environment
 ONEDRIVE = C:\Users\stakk\OneDrive
 # makefile
-CURDIR := c:/Users/stakk/Documents/fh/master/2/service/ServiceEngineering_LambdaArchitecture/ingress
+CURDIR := c:/Users/stakk/Documents/fh/master/2/service/ServiceEngineering_LambdaArchitecture/processor-analytics
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
@@ -227,7 +226,7 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/stakk/Documents/fh/master/2/service/ServiceEngineering_LambdaArchitecture/ingress, mtime 1652027786): 17 files, no impossibilities.
+# . (key c:/Users/stakk/Documents/fh/master/2/service/ServiceEngineering_LambdaArchitecture/processor-analytics, mtime 1652114503): 17 files, no impossibilities.
 
 # 17 files, no impossibilities in 1 directories.
 
@@ -242,29 +241,22 @@ docker-build-image:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 28):
-	docker build -t stakkato95/lambda-ingress:latest . -f Dockerfile
+#  recipe to execute (from 'Makefile', line 24):
+	docker build -t stakkato95/lambda-processor-analytics:latest . -f Dockerfile
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-09 17:21:09
+#  Last modified 2022-05-09 17:23:26
 #  File has been updated.
 #  Successfully updated.
-
-docker-run-tmp-container:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 36):
-	docker run --rm -p 8080:8080 -d stakkato95/lambda-ingress
 
 clear:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 23):
+#  recipe to execute (from 'Makefile', line 19):
 	rm main.exe
 
 # Not a target:
@@ -294,50 +286,35 @@ test:
 #  File does not exist.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 10):
-	go te 
-st ./...
+	go test ./...
 
 docker-push-image: docker-build-image
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 32):
-	docker push stakkato95/lambda-ingress:latest
+#  recipe to execute (from 'Makefile', line 28):
+	docker push stakkato95/lambda-processor-analytics:latest
 
-run-with-env: build
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 18):
-	$$env:SERVER_PORT='8080'; $$env:KAFKA_SERVICE='kafka.default.svc.cluster.local:9092'; ./main
-
-docker-local-container:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-
-.PHONY: test build run-with-env clear docker-build-image docker-push-image docker-local-container
+.PHONY: test build clear docker-build-image docker-push-image
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=13/1024=1%, Rehash=0, Collisions=0/39=0%
+# Load=10/1024=1%, Rehash=0, Collisions=0/31=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 29 / storage = 262 B / avg = 9 B
-# current buf: size = 8174 B / used = 262 B / count = 29 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 26 / storage = 201 B / avg = 7 B
+# current buf: size = 8174 B / used = 201 B / count = 26 / avg = 7 B
 
-# strcache performance: lookups = 62 / hit rate = 53%
+# strcache performance: lookups = 51 / hit rate = 49%
 # hash-table stats:
-# Load=29/8192=0%, Rehash=0, Collisions=0/62=0%
-# Finished Make data base on Mon May 09 18:41:34 2022
+# Load=26/8192=0%, Rehash=0, Collisions=0/51=0%
+# Finished Make data base on Mon May 09 18:41:43 2022
 
  

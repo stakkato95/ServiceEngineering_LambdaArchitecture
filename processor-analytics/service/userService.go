@@ -1,5 +1,7 @@
 package service
 
+import "github.com/stakkato95/lambda-architecture/processor-analytics/domain"
+
 // "github.com/stakkato95/lambda-architecture/ingress/domain"
 // "github.com/stakkato95/lambda-architecture/ingress/errs"
 
@@ -8,13 +10,13 @@ type UserService interface {
 }
 
 type simpleUserService struct {
-	// repo domain.UserRepository
+	repo domain.UserRepository
 }
 
 func (s *simpleUserService) GetUserCount() int {
-	return 100500 //s.repo.InjestUser(user)
+	return s.repo.GetUserCount()
 }
 
-func NewSimpleUserService( /*repo domain.UserRepository*/ ) UserService {
-	return &simpleUserService{ /*repo*/ }
+func NewUserService(repo domain.UserRepository) UserService {
+	return &simpleUserService{repo}
 }

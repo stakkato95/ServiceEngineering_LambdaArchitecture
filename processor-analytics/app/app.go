@@ -6,6 +6,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/stakkato95/lambda-architecture/processor-analytics/config"
+	"github.com/stakkato95/lambda-architecture/processor-analytics/domain"
 	"github.com/stakkato95/lambda-architecture/processor-analytics/logger"
 	"github.com/stakkato95/lambda-architecture/processor-analytics/service"
 )
@@ -13,13 +14,13 @@ import (
 func Start() {
 	router := mux.NewRouter()
 
-	// repo := domain.NewKafkaUserRepository()
-	// defer func() {
-	// 	repo.Destroy()
-	// 	logger.Info("Kafka connection successfully destroyed")
-	// }()
+	repo := domain.NewUserRepository()
+	defer func() {
+		repo.Destroy()
+		logger.Info("Kafka connection successfully destroyed")
+	}()
 
-	service := service.NewSimpleUserService( /*repo*/ )
+	service := service.NewUserService(repo)
 	handlers := UserHandlers{service}
 
 	router.HandleFunc("/user/count", handlers.ReadUserCount).Methods(http.MethodGet)
