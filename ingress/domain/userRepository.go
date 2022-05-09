@@ -1,8 +1,10 @@
 package domain
 
 import (
+	"bytes"
 	"context"
-	"time"
+	"encoding/json"
+	"fmt"
 
 	"github.com/segmentio/kafka-go"
 	"github.com/stakkato95/lambda-architecture/ingress/config"
@@ -26,22 +28,25 @@ func NewKafkaUserRepository() UserRepository {
 	conn, err := kafka.DialLeader(context.Background(), "tcp", config.AppConfig.KafkaService, userTopic, partition)
 	if err != nil {
 		logger.Fatal("failed to dial leader: " + err.Error())
-	} else {
-		logger.Info("LEADER WORKS!!")
 	}
-	conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
 
+	// conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
 	return &KafkaUserRepository{conn}
 }
 
 func (k *KafkaUserRepository) InjestUser(user User) *errs.AppError {
-	_, err := k.conn.WriteMessages(
-		kafka.Message{Value: []byte("{ \"name\": \"" + user.Name + "\" }")},
-	)
-	if err != nil {
-		logger.Error("failed to write messages: " + err.Error())
+	w := new(bytes.Buffer)
+	if err := json.NewEncoder(w).Encode(user); err != nil {
+		logger.Fatal("can not encode user struct: " + err.Error())
 	}
-	return nil
+
+	if bytesWritten, err := k.conn.Write(w.Bytes()); err != nil {
+		logger.Error("failed to write messages: " + err.Error())
+		return errs.NewInjestError(err.Error())
+	} else {
+		logger.Info(fmt.Sprintf("writter user: %s, written bytes: %d", w.String(), bytesWritten))
+		return nil
+	}
 }
 
 func (k *KafkaUserRepository) Destroy() error {

@@ -20,7 +20,7 @@ func Start() {
 		logger.Info("Kafka connection successfully destroyed")
 	}()
 
-	service := service.NewUserServiceStub(repo)
+	service := service.NewSimpleUserService(repo)
 	handlers := UserHandlers{service}
 
 	router.HandleFunc("/user", handlers.CreateUser).Methods(http.MethodPost)

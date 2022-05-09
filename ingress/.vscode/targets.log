@@ -8,12 +8,10 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun May 08 17:34:46 2022
+# Make data base, printed on Mon May 09 16:46:21 2022
 
 # Variables
 
-# environment
-FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # environment
 SYSTEMDRIVE = C:
 # environment
@@ -25,11 +23,9 @@ USERPROFILE = C:\Users\stakk
 # environment
 LOCALAPPDATA = C:\Users\stakk\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-850168a1-2573-497b-a2e7-1722804a3fbb-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-193869d5-6ebd-4885-995c-760958760573-sock
 # environment
-WSLENV = WT_SESSION::WT_PROFILE_ID
-# environment
-VSCODE_CWD = C:\Users\stakk\Documents\fh\master\2\service\ServiceEngineering_LambdaArchitecture
+VSCODE_CWD = C:\Users\stakk\AppData\Local\Programs\Microsoft VS Code
 # environment
 CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
 # environment
@@ -37,7 +33,7 @@ SYSTEMROOT = C:\WINDOWS
 # environment
 PROCESSOR_LEVEL = 6
 # environment
-PSMODULEPATH = C:\Users\stakk\Documents\WindowsPowerShell\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
 # default
 MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # environment
@@ -46,8 +42,6 @@ GOPATH = C:\Users\stakk\go
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
 CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_2976_YGZPGZRWIOSKASDV
-# environment
-FPS_BROWSER_USER_PROFILE_STRING = Default
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -106,8 +100,6 @@ VSCODE_VERBOSE_LOGGING = true
 VSCODE_PID = 2976
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
-# environment
-WT_PROFILE_ID = {61c54bbd-c2c6-5271-96e7-009a87ff44bf}
 # automatic
 *F = $(notdir $*)
 # automatic
@@ -135,7 +127,7 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = C:\Python310\Scripts\;C:\Python310\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\MATLAB\R2022a\bin;C:\ProgramData\chocolatey\bin;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.5\bin;C:\Program Files\GraalVM\graalvm-ce-java17-22.0.0.2\bin;C:\Program Files\Go\bin;C:\Users\stakk\AppData\Local\Microsoft\WindowsApps;C:\Users\stakk\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\stakk\go\bin
+PATH = C:\Python310\Scripts\;C:\Python310\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\MATLAB\R2022a\bin;C:\ProgramData\chocolatey\bin;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.5\bin;C:\Program Files\GraalVM\graalvm-ce-java17-22.0.0.2\bin;C:\Program Files\Go\bin;C:\Users\stakk\AppData\Local\Microsoft\WindowsApps;;C:\Users\stakk\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\stakk\go\bin
 # environment
 ZES_ENABLE_SYSMAN = 1
 # environment
@@ -151,8 +143,6 @@ CHOCOLATEYLASTPATHUPDATE = 132946754099002331
 # environment
 GRADLE_HOME = C:\ProgramData\chocolatey\lib\gradle\tools\gradle-7.4
 # environment
-WT_SESSION = 5dd08405-6a61-4c12-92a1-9aa7a0faf889
-# environment
 LOGONSERVER = \\LAPTOP-D013Q1O1
 # environment
 VSCODE_LOG_NATIVE = false
@@ -165,7 +155,7 @@ COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
 # environment
 PROGRAMW6432 = C:\Program Files
 # environment
-PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW;.CPL
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
 # automatic
 +F = $(notdir $+)
 # environment
@@ -176,8 +166,7 @@ USERDOMAIN = LAPTOP-D013Q1O1
 GNUMAKEFLAGS := 
 # environment
 OS = Windows_NT
-# makefile (fr 
-om 'Makefile', line 6)
+# makefile (from 'Makefile', line 6)
 .DEFAULT_GOAL := run-with-env
 # default
 MAKE_VERSION := 4.3
@@ -219,10 +208,6 @@ SUFFIXES :=
 ALLUSERSPROFILE = C:\ProgramData
 # environment
 SESSIONNAME = Console
-# environment
-VSCODE_CLI = 1
-# environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
 # environment
@@ -230,7 +215,7 @@ PROCESSOR_REVISION = 8c01
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
 # variable set hash-table stats:
-# Load=108/1024=11%, Rehash=0, Collisions=11/138=8%
+# Load=101/1024=10%, Rehash=0, Collisions=8/131=6%
 
 # Pattern-specific Variable Values
 
@@ -238,7 +223,7 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/stakk/Documents/fh/master/2/service/ServiceEngineering_LambdaArchitecture/ingress, mtime 1651994406): 17 files, no impossibilities.
+# . (key c:/Users/stakk/Documents/fh/master/2/service/ServiceEngineering_LambdaArchitecture/ingress, mtime 1652027786): 17 files, no impossibilities.
 
 # 17 files, no impossibilities in 1 directories.
 
@@ -259,7 +244,7 @@ docker-build-image:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-08 09:24:23
+#  Last modified 2022-05-08 18:53:06
 #  File has been updated.
 #  Successfully updated.
 
@@ -321,7 +306,7 @@ run-with-env: build
 #  File does not exist.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 18):
-	$$env:SERVER_PORT='8080'; ./main
+	$$env:SERVER_PORT='8080'; $$env:KAFKA_SERVICE='kafka.default.svc.cluster.local:9092'; ./main
 
 docker-local-container:
 #  Phony target (prerequisite of .PHONY).
@@ -348,6 +333,6 @@ docker-local-container:
 # strcache performance: lookups = 62 / hit rate = 53%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=0/62=0%
-# Finished Make data base on Sun May 08 17:34:46 2022
+# Finished Make data base on Mon May 09 16:46:21 2022
 
  
