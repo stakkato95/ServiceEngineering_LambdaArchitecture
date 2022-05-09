@@ -15,10 +15,10 @@ func Start() {
 	router := mux.NewRouter()
 
 	repo := domain.NewKafkaUserRepository()
-	defer func() {
-		repo.Destroy()
-		logger.Info("Kafka connection successfully destroyed")
-	}()
+	// defer func() {
+	// 	repo.Destroy()
+	// 	logger.Info("Kafka connection successfully destroyed")
+	// }()
 
 	service := service.NewSimpleUserService(repo)
 	handlers := UserHandlers{service}
