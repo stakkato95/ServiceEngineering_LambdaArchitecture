@@ -1,4 +1,4 @@
-POST http://localhost:8080/user
+POST http://localhost/ingress/user
 Content-Type: application/json
 
 {

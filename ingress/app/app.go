@@ -25,12 +25,12 @@ func Start() {
 
 	router.HandleFunc("/user", handlers.CreateUser).Methods(http.MethodPost)
 
-	u := domain.User{Id: "id", Name: "myname"}
-	repo.InjestUser(u)
+	// u := domain.User{Id: "id", Name: "myname"}
+	// repo.InjestUser(u)
 
 	port := config.AppConfig.ServerPort
 	logger.Info(fmt.Sprintf("started ingress at %s", port))
 	if err := http.ListenAndServe(port, router); err != nil {
-		logger.Error("error when starting ingress " + err.Error())
+		logger.Fatal("error when starting ingress " + err.Error())
 	}
 }

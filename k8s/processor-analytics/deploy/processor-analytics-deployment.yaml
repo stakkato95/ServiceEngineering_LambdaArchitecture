@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: processor-analytics-deployment
+  namespace: default
+  annotations:
+    "sidecar.jaegertracing.io/inject": "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: processor-analytics-app
+  template:
+    metadata:
+      labels:
+        app: processor-analytics-app
+    spec:
+      containers:
+      - name: processor-analytics
+        image: stakkato95/lambda-processor-analytics
+        ports:
+        - name: prc-analyt-port
+          containerPort: 8080
+        # readinessProbe:
+        #   failureThreshold: 3
+        #   initialDelaySeconds: 10
+        #   httpGet:
+        #     path: /health/readiness
+        #     port: 8080
+        # livenessProbe:
+        #   failureThreshold: 3
+        #   initialDelaySeconds: 20
+        #   httpGet:
+        #     path: /health/liveness
+        #     port: 8080
+          

@@ -3,17 +3,17 @@ kind: Ingress
 metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
-  name: lambda-ingress-ingress
+  name: processor-analytics-ingress
 spec:
   ingressClassName: nginx
   rules:
   - host: localhost
     http:
       paths:
-      - path: /ingress(/|$)(.*)
+      - path: /processor-analytics(/|$)(.*)
         pathType: Prefix
         backend:
           service:
-            name: lambda-ingress-service
+            name: processor-analytics-service
             port:
               number: 80

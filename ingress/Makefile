@@ -3,7 +3,7 @@ SHELL := powershell.exe
 .SHELLFLAGS := -NoProfile -Command
 endif
 
-.DEFAULT_GOAL := run-with-env
+.DEFAULT_GOAL := docker-push-image
 
 # local dev
 test:

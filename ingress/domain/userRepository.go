@@ -5,6 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"time"
 
 	"github.com/segmentio/kafka-go"
 	"github.com/stakkato95/lambda-architecture/ingress/config"
@@ -30,7 +31,7 @@ func NewKafkaUserRepository() UserRepository {
 		logger.Fatal("failed to dial leader: " + err.Error())
 	}
 
-	// conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
+	conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
 	return &KafkaUserRepository{conn}
 }
 
