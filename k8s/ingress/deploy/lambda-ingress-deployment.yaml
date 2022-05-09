@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lambda-ingress-deployment
+  namespace: default
+  annotations:
+    "sidecar.jaegertracing.io/inject": "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lambda-ingress-app
+  template:
+    metadata:
+      labels:
+        app: lambda-ingress-app
+    spec:
+      containers:
+      - name: lambda-ingress
+        image: stakkato95/lambda-ingress
+        ports:
+        - name: lambda-port
+          containerPort: 8080
+        # readinessProbe:
+        #   failureThreshold: 3
+        #   initialDelaySeconds: 10
+        #   httpGet:
+        #     path: /health/readiness
+        #     port: 8080
+        # livenessProbe:
+        #   failureThreshold: 3
+        #   initialDelaySeconds: 20
+        #   httpGet:
+        #     path: /health/liveness
+        #     port: 8080
+          
