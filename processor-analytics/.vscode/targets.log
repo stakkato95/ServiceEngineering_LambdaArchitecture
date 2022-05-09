@@ -1,3 +1,4 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target 'all'.  Stop.
 
 # GNU Make 4.3
@@ -7,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon May 09 18:41:43 2022
+# Make data base, printed on Mon May 09 19:28:24 2022
 
 # Variables
 
@@ -24,7 +25,7 @@ USERPROFILE = C:\Users\stakk
 # environment
 LOCALAPPDATA = C:\Users\stakk\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-4f755355-3054-461b-a8d6-2cab660cb5b7-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-e208bee7-6197-42c4-99f6-e708e84fbb82-sock
 # environment
 VSCODE_CWD = C:\Users\stakk\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -216,7 +217,8 @@ SESSIONNAME = Console
 # environment
 PROCESSOR_REVISION = 8c01
 # environment
-PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
+PROCESSOR_IDENTIF 
+IER = Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
 # variable set hash-table stats:
 # Load=103/1024=10%, Rehash=0, Collisions=9/133=7%
 
@@ -315,6 +317,6 @@ docker-push-image: docker-build-image
 # strcache performance: lookups = 51 / hit rate = 49%
 # hash-table stats:
 # Load=26/8192=0%, Rehash=0, Collisions=0/51=0%
-# Finished Make data base on Mon May 09 18:41:43 2022
+# Finished Make data base on Mon May 09 19:28:24 2022
 
  

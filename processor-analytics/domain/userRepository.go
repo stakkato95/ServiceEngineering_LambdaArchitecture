@@ -35,7 +35,7 @@ func NewUserRepository() UserRepository {
 	go func() {
 		for {
 			//zwischen timeout und anderen Fehlern unterscheiden
-			conn.SetReadDeadline(time.Now().Add(60 * time.Second))
+			conn.SetReadDeadline(time.Now().Add(60 * time.Hour))
 			if msg, err := conn.ReadMessage(msgBufferSize); err != nil {
 				logger.Error("error when reading a msg from kafka: " + err.Error())
 			} else {

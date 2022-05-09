@@ -31,7 +31,6 @@ func NewKafkaUserRepository() UserRepository {
 		logger.Fatal("failed to dial leader: " + err.Error())
 	}
 
-	conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
 	return &KafkaUserRepository{conn}
 }
 
@@ -41,6 +40,7 @@ func (k *KafkaUserRepository) InjestUser(user User) *errs.AppError {
 		logger.Fatal("can not encode user struct: " + err.Error())
 	}
 
+	k.conn.SetWriteDeadline(time.Now().Add(10 * time.Second))
 	if bytesWritten, err := k.conn.Write(w.Bytes()); err != nil {
 		logger.Error("failed to write messages: " + err.Error())
 		return errs.NewInjestError(err.Error())
