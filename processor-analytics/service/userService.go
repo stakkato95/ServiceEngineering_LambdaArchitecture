@@ -10,13 +10,13 @@ type UserService interface {
 }
 
 type simpleUserService struct {
-	repo domain.UserRepository
+	repo domain.UserProcessor
 }
 
 func (s *simpleUserService) GetUserCount() int {
 	return s.repo.GetUserCount()
 }
 
-func NewUserService(repo domain.UserRepository) UserService {
+func NewUserService(repo domain.UserProcessor) UserService {
 	return &simpleUserService{repo}
 }

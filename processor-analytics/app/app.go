@@ -14,7 +14,8 @@ import (
 func Start() {
 	router := mux.NewRouter()
 
-	repo := domain.NewUserRepository()
+	sink := domain.NewUserSink()
+	repo := domain.NewUserProcessor(sink)
 	// defer func() {
 	// 	repo.Destroy()
 	// 	logger.Info("Kafka connection successfully destroyed")

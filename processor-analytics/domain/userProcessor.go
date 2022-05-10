@@ -1,7 +1,9 @@
 package domain
 
 import (
+	"bytes"
 	"context"
+	"encoding/json"
 	"fmt"
 	"time"
 
@@ -10,7 +12,7 @@ import (
 	"github.com/stakkato95/lambda-architecture/processor-analytics/logger"
 )
 
-type UserRepository interface {
+type UserProcessor interface {
 	GetUserCount() int
 	Destroy() error
 }
@@ -19,18 +21,19 @@ const userTopic = "user"
 const partition = 0
 const msgBufferSize = 10e3 //10KB
 
-type kafkaUserRepository struct {
+type kafkaUserProcessor struct {
 	conn      *kafka.Conn
 	userCount int
+	sink      UserSink
 }
 
-func NewUserRepository() UserRepository {
+func NewUserProcessor(sink UserSink) UserProcessor {
 	conn, err := kafka.DialLeader(context.Background(), "tcp", config.AppConfig.KafkaService, userTopic, partition)
 	if err != nil {
 		logger.Fatal("failed to dial leader: " + err.Error())
 	}
 
-	repo := kafkaUserRepository{conn: conn}
+	repo := kafkaUserProcessor{conn: conn, sink: sink}
 
 	go func() {
 		for {
@@ -39,8 +42,13 @@ func NewUserRepository() UserRepository {
 			if msg, err := conn.ReadMessage(msgBufferSize); err != nil {
 				logger.Error("error when reading a msg from kafka: " + err.Error())
 			} else {
-				logger.Info(fmt.Sprintf("topic: %s, offset: %d, value: %s", msg.Topic, msg.Offset, string(msg.Value[:])))
+				// logger.Info(fmt.Sprintf("topic: %s, offset: %d, value: %s", msg.Topic, msg.Offset, string(msg.Value[:])))
 				repo.userCount += 1
+
+				var user User
+				json.NewDecoder(bytes.NewReader(msg.Value)).Decode(&user)
+				logger.Info(fmt.Sprintf("count: %d, read user: %v", repo.userCount, user))
+				repo.sink.Sink(repo.userCount)
 			}
 		}
 	}()
@@ -48,11 +56,11 @@ func NewUserRepository() UserRepository {
 	return &repo
 }
 
-func (k *kafkaUserRepository) GetUserCount() int {
+func (k *kafkaUserProcessor) GetUserCount() int {
 	return k.userCount
 }
 
-func (k *kafkaUserRepository) Destroy() error {
+func (k *kafkaUserProcessor) Destroy() error {
 	if err := k.conn.Close(); err != nil {
 		logger.Fatal("failed to close writer: " + err.Error())
 	}
