@@ -38,5 +38,18 @@ func NewUserSink() UserSink {
 
 func (s *cassandraUserSink) Sink(userCount int) error {
 	logger.Info(fmt.Sprintf("sink user: %d", userCount))
+
+	uuid, err := gocql.RandomUUID()
+	if err != nil {
+		logger.Fatal("can not generate random uuid: " + uuid.String())
+	}
+
+	err = s.session.Query(
+		"INSERT INTO "+config.AppConfig.CassandraTable+" (id, time, user_count) VALUES (?, ?, ?)",
+		uuid.String(), time.Now(), userCount).Exec()
+	if err != nil {
+		logger.Error("can not insert user count: " + err.Error())
+	}
+
 	return nil
 }
