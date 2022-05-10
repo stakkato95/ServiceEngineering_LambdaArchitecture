@@ -8,6 +8,7 @@ import (
 type Config struct {
 	ServerPort        string `mapstructure:"SERVER_PORT"`
 	KafkaService      string `mapstructure:"KAFKA_SERVICE"`
+	KafkaTopic        string `mapstructure:"KAFKA_TOPIC"`
 	CassandraCluster  string `mapstructure:"CASSANDRA_CLUSTER"`
 	CassandraUser     string `mapstructure:"CASSANDRA_USER"`
 	CassandraPassword string `mapstructure:"CASSANDRA_PASSWORD"`

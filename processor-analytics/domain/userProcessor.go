@@ -17,7 +17,6 @@ type UserProcessor interface {
 	Destroy() error
 }
 
-const userTopic = "user"
 const partition = 0
 const msgBufferSize = 10e3 //10KB
 
@@ -28,7 +27,9 @@ type kafkaUserProcessor struct {
 }
 
 func NewUserProcessor(sink UserSink) UserProcessor {
-	conn, err := kafka.DialLeader(context.Background(), "tcp", config.AppConfig.KafkaService, userTopic, partition)
+	kafkaService := config.AppConfig.KafkaService
+	topic := config.AppConfig.KafkaTopic
+	conn, err := kafka.DialLeader(context.Background(), "tcp", kafkaService, topic, partition)
 	if err != nil {
 		logger.Fatal("failed to dial leader: " + err.Error())
 	}
