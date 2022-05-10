@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-transactional-deployment
+  namespace: default
+  annotations:
+    "sidecar.jaegertracing.io/inject": "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-transactional-app
+  template:
+    metadata:
+      labels:
+        app: service-transactional-app
+    spec:
+      containers:
+      - name: service-transactional
+        image: stakkato95/lambda-service-transactional
+        # readinessProbe:
+        #   failureThreshold: 3
+        #   initialDelaySeconds: 10
+        #   httpGet:
+        #     path: /health/readiness
+        #     port: 8080
+        # livenessProbe:
+        #   failureThreshold: 3
+        #   initialDelaySeconds: 20
+        #   httpGet:
+        #     path: /health/liveness
+        #     port: 8080
+          

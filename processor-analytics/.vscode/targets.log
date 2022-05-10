@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue May 10 14:02:40 2022
+# Make data base, printed on Tue May 10 16:29:01 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ USERPROFILE = C:\Users\stakk
 # environment
 LOCALAPPDATA = C:\Users\stakk\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-5fe0581f-7a61-40dd-a42e-410848731d09-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-458b9ed7-2337-4558-b705-a2b5458abb3c-sock
 # environment
 VSCODE_CWD = C:\Users\stakk\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -199,7 +199,8 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 TEMP = C:\Users\stakk\AppData\Local\Temp
 # environment
-VSCODE_IPC_HOOK = \\.\pipe\31fbbe6287f2f8d0bc497561bad6116d-1.66.2-main-sock
+VSCODE_IPC_HOOK = \\.\pipe\31fbbe6287f 
+2f8d0bc497561bad6116d-1.66.2-main-sock
 # environment
 GOPROXY = https://proxy.golang.org,direct
 # default
@@ -294,8 +295,7 @@ docker-push-image: docker-build-image
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute  
-(from 'Makefile', line 28):
+#  recipe to execute (from 'Makefile', line 28):
 	docker push stakkato95/lambda-processor-analytics:latest
 
 .PHONY: test build clear docker-build-image docker-push-image
@@ -317,6 +317,6 @@ docker-push-image: docker-build-image
 # strcache performance: lookups = 51 / hit rate = 49%
 # hash-table stats:
 # Load=26/8192=0%, Rehash=0, Collisions=0/51=0%
-# Finished Make data base on Tue May 10 14:02:40 2022
+# Finished Make data base on Tue May 10 16:29:01 2022
 
  

@@ -1,6 +1,7 @@
 make.exe --dry-run --always-make --keep-going --print-directory
 make: Entering directory 'c:/Users/stakk/Documents/fh/master/2/service/ServiceEngineering_LambdaArchitecture/processor-analytics'
 docker build -t stakkato95/lambda-processor-analytics:latest . -f Dockerfile
+ 
 docker push stakkato95/lambda-processor-analytics:latest
 make: Leaving directory 'c:/Users/stakk/Documents/fh/master/2/service/ServiceEngineering_LambdaArchitecture/processor-analytics'
  
