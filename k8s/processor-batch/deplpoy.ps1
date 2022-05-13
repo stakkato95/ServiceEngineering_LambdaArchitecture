@@ -1,0 +1,1 @@
+kubectl apply -f .\processor-batch-deployment.yaml

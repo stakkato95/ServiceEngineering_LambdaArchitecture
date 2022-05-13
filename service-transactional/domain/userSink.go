@@ -34,7 +34,7 @@ func NewUserSink() UserSink {
 }
 
 func (s *mySqlUserSink) Sink(user User) error {
-	insertUser := "INSERT INTO user (id, name) VALUES (?, ?)"
+	insertUser := "INSERT IGNORE INTO user (id, name) VALUES (?, ?)"
 	result := s.db.MustExec(insertUser, user.Id, user.Name)
 	if rows, err := result.RowsAffected(); err != nil {
 		return errors.New(fmt.Sprintf("error when inserting user: %v", err))

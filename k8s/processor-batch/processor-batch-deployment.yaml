@@ -1,0 +1,58 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: processor-batch-cronjob
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: processor-batch
+            image: stakkato95/lambda-processor-batch
+            # imagePullPolicy: IfNotPresent
+            # command:
+            # - /bin/sh
+            # - -c
+            # - date; echo Hello from the Kubernetes cluster
+          restartPolicy: OnFailure
+
+
+
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: processor-batch-deployment
+#   namespace: default
+#   annotations:
+#     "sidecar.jaegertracing.io/inject": "true"
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: processor-batch-app
+#   template:
+#     metadata:
+#       labels:
+#         app: processor-batch-app
+#     spec:
+#       containers:
+#       - name: processor-batch
+#         image: stakkato95/lambda-processor-batch
+#         ports:
+#         - name: prc-batch-port
+#           containerPort: 8080
+#         # readinessProbe:
+#         #   failureThreshold: 3
+#         #   initialDelaySeconds: 10
+#         #   httpGet:
+#         #     path: /health/readiness
+#         #     port: 8080
+#         # livenessProbe:
+#         #   failureThreshold: 3
+#         #   initialDelaySeconds: 20
+#         #   httpGet:
+#         #     path: /health/liveness
+#         #     port: 8080
+          

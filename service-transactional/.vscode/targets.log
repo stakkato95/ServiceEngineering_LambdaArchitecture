@@ -7,9 +7,8 @@ make: *** No rule to make target 'all'.  Stop.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Fri May 13 09:43:31 2022
+# Make data base, printed on Fri May 13 21:48:00 2022
 
 # Variables
 
@@ -26,7 +25,7 @@ USERPROFILE = C:\Users\stakk
 # environment
 LOCALAPPDATA = C:\Users\stakk\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-8e1cee61-ed51-440a-8633-84ea648bc4af-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-265c2c0e-10c1-43f2-b721-b17135503329-sock
 # environment
 VSCODE_CWD = C:\Users\stakk\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -317,6 +316,6 @@ docker-push-image: docker-build-image
 # strcache performance: lookups = 47 / hit rate = 53%
 # hash-table stats:
 # Load=22/8192=0%, Rehash=0, Collisions=0/47=0%
-# Finished Make data base on Fri May 13 09:43:31 2022
+# Finished Make data base on Fri May 13 21:48:00 2022
 
  
