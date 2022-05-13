@@ -46,7 +46,9 @@ func (p *kafkaUserProcessor) StartProcessing() error {
 			var user User
 			json.NewDecoder(bytes.NewReader(msg.Value)).Decode(&user)
 			logger.Info(fmt.Sprintf("read user: %v", user))
-			p.sink.Sink(user)
+			if err := p.sink.Sink(user); err != nil {
+				logger.Error("sink error: " + err.Error())
+			}
 		}
 	}
 }

@@ -1,3 +1,4 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target 'all'.  Stop.
 
 # GNU Make 4.3
@@ -6,8 +7,9 @@ make: *** No rule to make target 'all'.  Stop.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Tue May 10 17:48:29 2022
+# Make data base, printed on Fri May 13 09:43:31 2022
 
 # Variables
 
@@ -24,7 +26,7 @@ USERPROFILE = C:\Users\stakk
 # environment
 LOCALAPPDATA = C:\Users\stakk\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-1aff1a02-917a-45e1-b984-b9064b4e1e30-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-8e1cee61-ed51-440a-8633-84ea648bc4af-sock
 # environment
 VSCODE_CWD = C:\Users\stakk\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -59,8 +61,7 @@ VSCODE_LOG_STACK = false
 %F = $(notdir $%)
 # environment
 VSCODE_CODE_CACHE_PATH = C:\Users\stakk\AppData\Roaming\Code\CachedData\dfd34e8260c270da74b5c2d86d61aee4b6d56977
-# en 
-vironment
+# environment
 LANG = C
 # default
 .LOADED := 
@@ -79,7 +80,7 @@ CURDIR := c:/Users/stakk/Documents/fh/master/2/service/ServiceEngineering_Lambda
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
 *D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
 # environment
@@ -117,8 +118,7 @@ PROGRAMDATA = C:\ProgramData
 # makefile (from 'Makefile', line 2)
 SHELL := C:/WINDOWS/System32/WindowsPowerShell/v1.0//powershell.exe
 # environment
-HOMEPATH = \Users\sta 
-kk
+HOMEPATH = \Users\stakk
 # default
 MAKECMDGOALS := all
 # environment
@@ -138,7 +138,6 @@ ZES_ENABLE_SYSMAN = 1
 # environment
 COMPUTERNAME = LAPTOP-D013Q1O1
 # default
- 
 MAKEFILES := 
 # automatic
 ^F = $(notdir $^)
@@ -296,8 +295,7 @@ docker-push-image: docker-build-image
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to 
- execute (from 'Makefile', line 28):
+#  recipe to execute (from 'Makefile', line 28):
 	docker push stakkato95/lambda-service-transactional:latest
 
 .PHONY: test build clear docker-build-image docker-push-image
@@ -314,12 +312,11 @@ docker-push-image: docker-build-image
 # No general ('VPATH' variable) search path.
 
 # strcache buffers: 1 (0) / strings = 22 / storage = 172 B / avg = 7 B
-# 
- current buf: size = 8174 B / used = 172 B / count = 22 / avg = 7 B
+# current buf: size = 8174 B / used = 172 B / count = 22 / avg = 7 B
 
 # strcache performance: lookups = 47 / hit rate = 53%
 # hash-table stats:
 # Load=22/8192=0%, Rehash=0, Collisions=0/47=0%
-# Finished Make data base on Tue May 10 17:48:29 2022
+# Finished Make data base on Fri May 13 09:43:31 2022
 
  

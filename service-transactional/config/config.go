@@ -8,6 +8,8 @@ import (
 type Config struct {
 	KafkaService string `mapstructure:"KAFKA_SERVICE"`
 	KafkaTopic   string `mapstructure:"KAFKA_TOPIC"`
+	DbDriver     string `mapstructure:"DB_DRIVER"`
+	DbSource     string `mapstructure:"DB_SOURCE"`
 }
 
 var AppConfig Config
