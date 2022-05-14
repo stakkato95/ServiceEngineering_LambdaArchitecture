@@ -1,4 +1,4 @@
-NAME: cassandra-1652182164
+NAME: cassandra-100500
 LAST DEPLOYED: Tue May 10 13:29:26 2022
 NAMESPACE: default
 STATUS: deployed
@@ -11,30 +11,30 @@ APP VERSION: 4.0.3** Please be patient while the chart is being deployed **
 
 Cassandra can be accessed through the following URLs from within the cluster:
 
-  - CQL: cassandra-1652182164.default.svc.cluster.local:9042
+  - CQL: cassandra-100500.default.svc.cluster.local:9042
 
 To get your password run:
 
-   export CASSANDRA_PASSWORD=$(kubectl get secret --namespace "default" cassandra-1652182164 -o jsonpath="{.data.cassandra-password}" | base64 --decode)
+   export CASSANDRA_PASSWORD=$(kubectl get secret --namespace "default" cassandra-100500 -o jsonpath="{.data.cassandra-password}" | base64 --decode)
 
 Check the cluster status by running:
 
-   kubectl exec -it --namespace default $(kubectl get pods --namespace default -l app=cassandra,release=cassandra-1652182164 -o jsonpath='{.items[0].metadata.name}') nodetool status
+   kubectl exec -it --namespace default $(kubectl get pods --namespace default -l app=cassandra,release=cassandra-100500 -o jsonpath='{.items[0].metadata.name}') nodetool status
 
 To connect to your Cassandra cluster using CQL:
 
 1. Run a Cassandra pod that you can use as a client:
 
-   kubectl run --namespace default cassandra-1652182164-client --rm --tty -i --restart='Never' \
+   kubectl run --namespace default cassandra-100500-client --rm --tty -i --restart='Never' \
    --env CASSANDRA_PASSWORD=$CASSANDRA_PASSWORD \
     \
    --image docker.io/bitnami/cassandra:4.0.3-debian-10-r59 -- bash
 
 2. Connect using the cqlsh client:
 
-   cqlsh -u cassandra -p $CASSANDRA_PASSWORD cassandra-1652182164
+   cqlsh -u cassandra -p $CASSANDRA_PASSWORD cassandra-100500
 
 To connect to your database from outside the cluster execute the following commands:
 
-   kubectl port-forward --namespace default svc/cassandra-1652182164 9042:9042 &
+   kubectl port-forward --namespace default svc/cassandra-100500 9042:9042 &
    cqlsh -u cassandra -p $CASSANDRA_PASSWORD 127.0.0.1 9042
