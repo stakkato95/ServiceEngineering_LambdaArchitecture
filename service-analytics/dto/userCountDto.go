@@ -1,6 +1,10 @@
 package dto
 
-import "github.com/stakkato95/lambda-architecture/service-analytics/domain"
+import (
+	"time"
+
+	"github.com/stakkato95/lambda-architecture/service-analytics/domain"
+)
 
 type UserCountDto struct {
 	Id        string `json:"id"`
@@ -11,7 +15,7 @@ type UserCountDto struct {
 func UserCountToDto(userCount *domain.UserCount) UserCountDto {
 	return UserCountDto{
 		Id:        userCount.Id,
-		Time:      userCount.Time,
+		Time:      userCount.Time.Format(time.RFC3339),
 		UserCount: userCount.UserCount,
 	}
 }

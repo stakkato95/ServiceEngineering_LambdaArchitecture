@@ -8,10 +8,12 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat May 14 08:10:29 2022
+# Make data base, printed on Sat May 14 10:48:15 2022
 
 # Variables
 
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # environment
 SYSTEMDRIVE = C:
 # environment
@@ -23,7 +25,7 @@ USERPROFILE = C:\Users\stakk
 # environment
 LOCALAPPDATA = C:\Users\stakk\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-0e6b94dd-93be-4cbc-844f-9a3905170d46-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-41b233fb-fcef-4244-80e8-b939cb227462-sock
 # environment
 WSLENV = WT_SESSION::WT_PROFILE_ID
 # environment
@@ -44,6 +46,8 @@ GOPATH = C:\Users\stakk\go
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
 CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_34376_UOFDLQLZRCGSIJRU
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -196,8 +200,7 @@ GOMODCACHE = C:\Users\stakk\go\pkg\mod
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
-# 
- environment
+# environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
 TEMP = C:\Users\stakk\AppData\Local\Temp
@@ -224,7 +227,7 @@ PROCESSOR_REVISION = 8c01
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
 # variable set hash-table stats:
-# Load=105/1024=10%, Rehash=0, Collisions=10/135=7%
+# Load=107/1024=10%, Rehash=0, Collisions=11/137=8%
 
 # Pattern-specific Variable Values
 
@@ -248,7 +251,8 @@ docker-build-image:
 #  File does not exist.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 24):
-	docker build -t stakkato95/lambda-processor-analytics:latest . -f Dockerfile
+	docker build - 
+t stakkato95/lambda-processor-analytics:latest . -f Dockerfile
 
 # Not a target:
 Makefile:
@@ -321,6 +325,6 @@ docker-push-image: docker-build-image
 # strcache performance: lookups = 51 / hit rate = 49%
 # hash-table stats:
 # Load=26/8192=0%, Rehash=0, Collisions=0/51=0%
-# Finished Make data base on Sat May 14 08:10:29 2022
+# Finished Make data base on Sat May 14 10:48:15 2022
 
  

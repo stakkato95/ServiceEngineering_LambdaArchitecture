@@ -1,7 +1,9 @@
 package domain
 
+import "time"
+
 type UserCount struct {
 	Id        string
-	Time      string
+	Time      time.Time
 	UserCount int
 }

@@ -6,6 +6,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/stakkato95/lambda-architecture/service-analytics/config"
+	"github.com/stakkato95/lambda-architecture/service-analytics/domain"
 	"github.com/stakkato95/lambda-architecture/service-analytics/logger"
 	"github.com/stakkato95/lambda-architecture/service-analytics/service"
 )
@@ -13,9 +14,13 @@ import (
 func Start() {
 	router := mux.NewRouter()
 
-	userService := service.NewUserService()
-	userCountService := service.NewUserCountService()
+	userRepo := domain.NewUserRepository()
+	userCountRepo := domain.NewUserCountRepository()
+
+	userService := service.NewUserService(userRepo)
+	userCountService := service.NewUserCountService(userCountRepo)
 	service := service.NewAnalyticsService(userService, userCountService)
+
 	handlers := AnalyticsHandlers{service}
 
 	router.HandleFunc("/analytics", handlers.GetUserAnalytics).Methods(http.MethodGet)

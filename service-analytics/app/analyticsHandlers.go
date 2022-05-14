@@ -18,6 +18,7 @@ func (h *AnalyticsHandlers) GetUserAnalytics(w http.ResponseWriter, r *http.Requ
 	if err != nil {
 		logger.Error("error when fetching analytics: " + err.Error())
 		writeResponse(w, http.StatusInternalServerError, "error when fetching analytics")
+		return
 	}
 
 	writeResponse(w, http.StatusOK, dto.ToDto(user, counts))

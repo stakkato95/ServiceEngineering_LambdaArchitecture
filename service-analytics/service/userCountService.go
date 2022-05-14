@@ -7,17 +7,13 @@ type UserCountService interface {
 }
 
 type simpleUserCountService struct {
+	repo domain.UserCountRepository
 }
 
-func NewUserCountService() UserCountService {
-	return &simpleUserCountService{}
+func NewUserCountService(repo domain.UserCountRepository) UserCountService {
+	return &simpleUserCountService{repo}
 }
 
 func (s *simpleUserCountService) GetUserCount() ([]domain.UserCount, error) {
-	counts := []domain.UserCount{
-		{Id: "1", Time: "t1", UserCount: 0},
-		{Id: "2", Time: "t2", UserCount: 1},
-		{Id: "3", Time: "t3", UserCount: 2},
-	}
-	return counts, nil
+	return s.repo.GetUserCounts(), nil
 }

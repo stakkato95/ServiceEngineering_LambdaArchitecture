@@ -1,6 +1,7 @@
 package domain
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/gocql/gocql"
@@ -45,6 +46,10 @@ func (r *cassandraUserCountRepository) GetUserCounts() []UserCount {
 			break
 		}
 		counts = append(counts, userCount)
+	}
+
+	if iter.NumRows() != len(counts) {
+		logger.Error(fmt.Sprintf("can not process all cassandra rows: expected %d, actual %d", iter.NumRows(), len(counts)))
 	}
 
 	return counts
