@@ -7,8 +7,8 @@ type UserDto struct {
 	Name string `json:"name"`
 }
 
-func UserToDto(user *domain.User) UserDto {
-	return UserDto{
+func UserToDto(user *domain.User) *UserDto {
+	return &UserDto{
 		Id:   user.Id,
 		Name: user.Name,
 	}

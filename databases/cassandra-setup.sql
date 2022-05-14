@@ -22,3 +22,4 @@ CREATE TABLE user(
 );
 
 SELECT * FROM user;
+-- TRUNCATE TABLE user;

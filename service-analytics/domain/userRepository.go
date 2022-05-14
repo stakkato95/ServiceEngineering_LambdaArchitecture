@@ -38,8 +38,13 @@ func (r *mysqlUserRepository) GetLongestNameUser() (*User, error) {
 	if err := r.db.Select(&users, findAllSql); err != nil {
 		return nil, err
 	}
-	if len(users) != 1 {
+
+	if len(users) > 1 {
 		return nil, errors.New("more than one user with longest name")
+	}
+
+	if len(users) == 0 {
+		return nil, nil
 	}
 
 	return &users[0], nil

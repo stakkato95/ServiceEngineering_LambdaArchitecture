@@ -5,7 +5,7 @@ import (
 )
 
 type UserAnalyticsDto struct {
-	LongestNameUser UserDto        `json:"longestNameUser"`
+	LongestNameUser *UserDto       `json:"longestNameUser"`
 	UserCount       []UserCountDto `json:"userCount"`
 }
 
@@ -15,8 +15,13 @@ func ToDto(user *domain.User, userCounts []domain.UserCount) UserAnalyticsDto {
 		userCountDtos[i] = UserCountToDto(&userCount)
 	}
 
+	var userDto *UserDto
+	if user != nil {
+		userDto = UserToDto(user)
+	}
+
 	return UserAnalyticsDto{
-		LongestNameUser: UserToDto(user),
+		LongestNameUser: userDto,
 		UserCount:       userCountDtos,
 	}
 }
