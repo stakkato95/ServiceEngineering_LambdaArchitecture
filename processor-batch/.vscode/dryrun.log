@@ -1,0 +1,6 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'c:/Users/stakk/Documents/fh/master/2/service/ServiceEngineering_LambdaArchitecture/processor-batch'
+docker build -t stakkato95/lambda-processor-batch:latest . -f Dockerfile
+docker push stakkato95/lambda-processor-batch:latest
+make: Leaving directory 'c:/Users/stakk/Documents/fh/master/2/service/ServiceEngineering_LambdaArchitecture/processor-batch'
+ 

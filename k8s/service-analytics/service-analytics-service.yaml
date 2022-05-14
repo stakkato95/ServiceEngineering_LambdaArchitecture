@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-analytics-service
+spec:
+  type: ClusterIP
+  selector:
+    app: service-analytics-app
+  ports:
+  - port: 80
+    targetPort: svc-analyt-port
+    protocol: TCP

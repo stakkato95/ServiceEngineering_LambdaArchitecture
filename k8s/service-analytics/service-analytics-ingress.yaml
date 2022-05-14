@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  name: service-analytics-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - path: /service-analytics(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: service-analytics-service
+            port:
+              number: 80

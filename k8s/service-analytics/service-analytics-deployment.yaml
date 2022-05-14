@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-analytics-deployment
+  namespace: default
+  annotations:
+    "sidecar.jaegertracing.io/inject": "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-analytics-app
+  template:
+    metadata:
+      labels:
+        app: service-analytics-app
+    spec:
+      containers:
+      - name: service-analytics
+        image: stakkato95/lambda-service-analytics
+        ports:
+        - name: svc-analyt-port
+          containerPort: 8080
+        # readinessProbe:
+        #   failureThreshold: 3
+        #   initialDelaySeconds: 10
+        #   httpGet:
+        #     path: /health/readiness
+        #     port: 8080
+        # livenessProbe:
+        #   failureThreshold: 3
+        #   initialDelaySeconds: 20
+        #   httpGet:
+        #     path: /health/liveness
+        #     port: 8080
+          
